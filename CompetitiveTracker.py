@@ -7,7 +7,8 @@ def GetAverageVolPerCampaign(apiKey, domain, qd=None):
     parameters = {
         "Authorization": apiKey
     }
-    apiResponse = MakeAPICall(apiUrl, parameters, qd=qd)
+    parameters = SetOptionalParams(parameters, qd=qd)
+    apiResponse = MakeAPICall(apiUrl, parameters)
 
     return json.loads(apiResponse)
 
@@ -17,7 +18,8 @@ def GetCampaignByID(apiKey, campaignId, embed=None):
     parameters = {
         "Authorization": apiKey
     }
-    apiResponse = MakeAPICall(apiUrl, parameters, embed=embed)
+    parameters = SetOptionalParams(parameters, embed=embed)
+    apiResponse = MakeAPICall(apiUrl, parameters)
 
     return json.loads(apiResponse)
 
@@ -28,7 +30,8 @@ def GetCampaignsByDomain(apiKey, domain, qd, campaignLengthFilter=None, page=Non
         "Authorization": apiKey,
         "qd": qd
     }
-    apiResponse = MakeAPICall(apiUrl, parameters, campaignLengthFilter=campaignLengthFilter, page=page, per_page=per_page, order=order, embed=embed)
+    parameters = SetOptionalParams(parameters, campaignLengthFilter=campaignLengthFilter, page=page, per_page=per_page, order=order, embed=embed)
+    apiResponse = MakeAPICall(apiUrl, parameters)
 
     return json.loads(apiResponse)
 
@@ -38,7 +41,8 @@ def GetCampaignsPerWeekByDomain(apiKey, domain, startDate=None, weeksBack=None):
     parameters = {
         "Authorization": apiKey
     }
-    apiResponse = MakeAPICall(apiUrl, parameters, startDate=startDate, weeksBack=weeksBack)
+    parameters = SetOptionalParams(parameters, startDate=startDate, weeksBack=weeksBack)
+    apiResponse = MakeAPICall(apiUrl, parameters)
 
     return json.loads(apiResponse)
 
@@ -49,7 +53,8 @@ def GetDeliverabilityByIP(apiKey, startingIpAddress, qd, lastBlock=None):
         "Authorization": apiKey,
         "qd": qd
     }
-    apiResponse = MakeAPICall(apiUrl, parameters, lastBlock=lastBlock)
+    parameters = SetOptionalParams(parameters, lastBlock=lastBlock)
+    apiResponse = MakeAPICall(apiUrl, parameters)
 
     return json.loads(apiResponse)
 
@@ -60,6 +65,7 @@ def GetDomainInfo(apiKey, domain):
         "Authorization": apiKey,
         "domain": domain
     }
+    parameters = SetOptionalParams(parameters)
     apiResponse = MakeAPICall(apiUrl, parameters)
 
     return json.loads(apiResponse)
@@ -70,7 +76,8 @@ def GetDomainOverlap(apiKey, domain, minThreshold=None, maxResults=None, ignoreI
     parameters = {
         "Authorization": apiKey
     }
-    apiResponse = MakeAPICall(apiUrl, parameters, minThreshold=minThreshold, maxResults=maxResults, ignoreIndustry=ignoreIndustry, excludeSameCompany=excludeSameCompany, embed=embed)
+    parameters = SetOptionalParams(parameters, minThreshold=minThreshold, maxResults=maxResults, ignoreIndustry=ignoreIndustry, excludeSameCompany=excludeSameCompany, embed=embed)
+    apiResponse = MakeAPICall(apiUrl, parameters)
 
     return json.loads(apiResponse)
 
@@ -80,7 +87,8 @@ def GetDoWAverage(apiKey, domain, qd=None, embed=None):
     parameters = {
         "Authorization": apiKey
     }
-    apiResponse = MakeAPICall(apiUrl, parameters, qd=qd, embed=embed)
+    parameters = SetOptionalParams(parameters, qd=qd, embed=embed)
+    apiResponse = MakeAPICall(apiUrl, parameters)
 
     return json.loads(apiResponse)
 
@@ -91,6 +99,7 @@ def GetIPDeliverabilityByIP(apiKey, sendingIPAddress, qd):
         "Authorization": apiKey,
         "qd": qd
     }
+    parameters = SetOptionalParams(parameters)
     apiResponse = MakeAPICall(apiUrl, parameters)
 
     return json.loads(apiResponse)
@@ -102,6 +111,7 @@ def GetIspPlacementsByDomain(apiKey, domain, qd):
         "Authorization": apiKey,
         "qd": qd
     }
+    parameters = SetOptionalParams(parameters)
     apiResponse = MakeAPICall(apiUrl, parameters)
 
     return json.loads(apiResponse)
@@ -113,6 +123,7 @@ def GetNarrowOverlap(apiKey, domain, overlapDomain):
         "Authorization": apiKey,
         "overlapDomain": overlapDomain
     }
+    parameters = SetOptionalParams(parameters)
     apiResponse = MakeAPICall(apiUrl, parameters)
 
     return json.loads(apiResponse)
@@ -123,16 +134,35 @@ def GetPing(apiKey):
     parameters = {
         "Authorization": apiKey
     }
+    parameters = SetOptionalParams(parameters)
     apiResponse = MakeAPICall(apiUrl, parameters)
 
     return apiResponse
 
 
-def GetSearch(apiKey):
+def GetSearch(apiKey, qd, subject=None, body=None, campaignLengthFilter=None, sendingDomain=None,
+                            excludeSendingDomain=None, brandId=None, excludeBrandId=None, companyId=None,
+                            excludeCompanyId=None, industryId=None, sentFrom=None, fromAddress=None, headerKey=None,
+                            headerValue=None, receivedUsingMta=None, mobileReady=None, hasCreative=None,
+                            onlyCommercial=None, emojiPresent=None, readPercentage=None, readDeletedPercentage=None,
+                            deletedPercentage=None, inboxPercentage=None, spamPercentage=None,
+                            projectedVolumeFilter=None, secondaryProjectedVolumeFilter=None,
+                            droveTrafficToDomain=None, sendFromIp=None, espId=None, espStartIp=None, espEndIp=None,
+                            espRedirectDomain=None, espRedirectString=None, campaignTargetCountry=None,
+                            excludeCampaignTargetCountry=None, page=None, per_page=None, order=None, embed=None):
+
+    arguments = locals()
+
     apiUrl = "http://api.edatasource.com/v4/competitive/search"
     parameters = {
-        "Authorization": apiKey
+        "Authorization": apiKey,
+        "qd": qd
     }
+
+    for k, v in arguments.items():
+        if v is not None and k not in("apiKey", "qd"):
+            parameters[k] = v
+
     apiResponse = MakeAPICall(apiUrl, parameters)
 
     return json.loads(apiResponse)
@@ -143,6 +173,7 @@ def GetTargetCountryByCampaign(apiKey, campaignId):
     parameters = {
         "Authorization": apiKey
     }
+    parameters = SetOptionalParams(parameters)
     apiResponse = MakeAPICall(apiUrl, parameters)
 
     return json.loads(apiResponse)
@@ -153,7 +184,8 @@ def GetTopCompetingByDomain(apiKey, domain, minThreshold=None, maxResults=None, 
     parameters = {
         "Authorization": apiKey
     }
-    apiResponse = MakeAPICall(apiUrl, parameters, minThreshold=minThreshold, maxResults=maxResults, embed=embed)
+    parameters = SetOptionalParams(parameters, minThreshold=minThreshold, maxResults=maxResults, embed=embed)
+    apiResponse = MakeAPICall(apiUrl, parameters)
 
     return json.loads(apiResponse)
 
@@ -163,6 +195,7 @@ def GetTopDomainsByBrand(apiKey, brandId):
     parameters = {
         "Authorization": apiKey
     }
+    parameters = SetOptionalParams(parameters)
     apiResponse = MakeAPICall(apiUrl, parameters)
 
     return json.loads(apiResponse)
@@ -174,7 +207,8 @@ def GetTotalVolByIP(apiKey, startingIpAddress, qd, lastBlock=None, embed=None):
         "Authorization": apiKey,
         "qd": qd
     }
-    apiResponse = MakeAPICall(apiUrl, parameters, lastBlock=lastBlock, embed=embed)
+    parameters = SetOptionalParams(parameters, lastBlock=lastBlock, embed=embed)
+    apiResponse = MakeAPICall(apiUrl, parameters)
 
     return json.loads(apiResponse)
 
@@ -184,7 +218,8 @@ def GetTotalVolumeByDomain(apiKey, domain, qd=None, embed=None):
     parameters = {
         "Authorization": apiKey
     }
-    apiResponse = MakeAPICall(apiUrl, parameters, qd=qd, embed=embed)
+    parameters = SetOptionalParams(parameters, qd=qd, embed=embed)
+    apiResponse = MakeAPICall(apiUrl, parameters)
 
     return json.loads(apiResponse)
 
@@ -195,7 +230,22 @@ def GetVolumeForListDomains(apiKey, domain, endDate=None, precision=None, timePe
         "Authorization": apiKey,
         "domain": domain
     }
-    apiResponse = MakeAPICall(apiUrl, parameters, endDate=endDate, precision=precision, timePeriod=timePeriod, mustMatchTLD=mustMatchTLD)
+    parameters = SetOptionalParams(parameters, endDate=endDate, precision=precision, timePeriod=timePeriod, mustMatchTLD=mustMatchTLD)
+    apiResponse = MakeAPICall(apiUrl, parameters)
+
+    return json.loads(apiResponse)
+
+
+def PostVolumeForListDomains(apiKey, domainArray, endDate=None, precision=None, timePeriod=None, mustMatchTLD=None):
+    apiUrl = "http://api.edatasource.com/v4/competitive/domain_info/brand_volume_average_and_esps"
+    parameters = {
+        "Authorization": apiKey
+    }
+    body = domainArray
+
+    parameters = SetOptionalParams(parameters, endDate=endDate, precision=precision, timePeriod=timePeriod, mustMatchTLD=mustMatchTLD)
+
+    apiResponse = MakePostAPICall(apiUrl, parameters, body)
 
     return json.loads(apiResponse)
 
@@ -206,38 +256,27 @@ def GetVolumesByDomain(apiKey, domain, qd, embed=None):
         "Authorization": apiKey,
         "qd": qd
     }
-    apiResponse = MakeAPICall(apiUrl, parameters, embed=embed)
+    parameters = SetOptionalParams(parameters, embed=embed)
+    apiResponse = MakeAPICall(apiUrl, parameters)
 
     return json.loads(apiResponse)
 
 
-def MakeAPICall(apiUrl, parameters, campaignLengthFilter = None, domain = None, embed = None, endDate = None,
+def SetOptionalParams(parameters, campaignLengthFilter = None, domain = None, embed = None, endDate = None,
                 mustMatchTLD = None, order = None, page = None, per_page = None, precision = None, qd = None,
                 startDate = None, timePeriod = None, weeksBack = None, sendingIpAddress = None,
                 startingIpAddress = None, lastBlock = None, minThreshold = None, maxResults = None,
                 ignoreIndustry = None, excludeSameCompany = None, overlapDomain = None):
+    arguments = locals()
 
-    parameters = AddOptionalParameter(parameters, campaignLengthFilter, "campaignLengthFilter")
-    parameters = AddOptionalParameter(parameters, domain, "domain")
-    parameters = AddOptionalParameter(parameters, embed, "embed")
-    parameters = AddOptionalParameter(parameters, endDate, "endDate")
-    parameters = AddOptionalParameter(parameters, mustMatchTLD, "mustMatchTLD")
-    parameters = AddOptionalParameter(parameters, order, "order")
-    parameters = AddOptionalParameter(parameters, page, "page")
-    parameters = AddOptionalParameter(parameters, per_page, "per_page")
-    parameters = AddOptionalParameter(parameters, precision, "precision")
-    parameters = AddOptionalParameter(parameters, qd, "qd")
-    parameters = AddOptionalParameter(parameters, startDate, "startDate")
-    parameters = AddOptionalParameter(parameters, timePeriod, "timePeriod")
-    parameters = AddOptionalParameter(parameters, weeksBack, "weeksBack")
-    parameters = AddOptionalParameter(parameters, sendingIpAddress, "sendingIpAddress")
-    parameters = AddOptionalParameter(parameters, startingIpAddress, "startingIpAddress")
-    parameters = AddOptionalParameter(parameters, lastBlock, "lastBlock")
-    parameters = AddOptionalParameter(parameters, minThreshold, "minThreshold")
-    parameters = AddOptionalParameter(parameters, maxResults, "maxResults")
-    parameters = AddOptionalParameter(parameters, ignoreIndustry, "ignoreIndustry")
-    parameters = AddOptionalParameter(parameters, excludeSameCompany, "excludeSameCompany")
-    parameters = AddOptionalParameter(parameters, overlapDomain, "overlapDomain")
+    for k, v in arguments.items():
+        if v is not None and k != "parameters":
+            parameters[k] = v
+
+    return parameters
+
+
+def MakeAPICall(apiUrl, parameters):
 
     response = requests.get(apiUrl, parameters)
 
@@ -247,9 +286,11 @@ def MakeAPICall(apiUrl, parameters, campaignLengthFilter = None, domain = None, 
         return "Problem Getting Data: " + response.reason
 
 
-def AddOptionalParameter(paramDict, optionalParam, optParamName):
+def MakePostAPICall(apiUrl, parameters, body):
 
-    if optionalParam is not None:
-        paramDict[optParamName] = optionalParam
+    response = requests.post(apiUrl, params=parameters, json=body)
 
-    return paramDict
+    if response.status_code == 200:
+        return response.text
+    else:
+        return "Problem Getting Data: " + response.reason
