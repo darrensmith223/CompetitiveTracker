@@ -493,8 +493,11 @@ def GetVolumesByDomain(apiKey, domain, qd, embed=None):
         "Authorization": apiKey,
         "qd": qd
     }
+    print('here')
     parameters = SetOptionalParams(parameters, embed=embed)
+    print('here')
     apiResponse = MakeAPICall(apiUrl, parameters)
+    print('here')
 
     return json.loads(apiResponse)
 
