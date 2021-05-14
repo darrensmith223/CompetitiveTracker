@@ -12,7 +12,7 @@ def test_ping_service():
         url,
         status=200,
         content_type='application/json',
-        body='{"results": "yay"}'
+        body='{"results": "pong"}'
     )
     output = CT.ping.ping_service()
     assert output == "pong"
