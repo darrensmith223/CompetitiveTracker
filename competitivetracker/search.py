@@ -1,43 +1,44 @@
 from .base import Resource
 
 param_model = {
-    'subject'
-    'body'
-    'campaignLengthFilter'
-    'sendingDomain'
-    'excludeSendingDomain'
-    'brandId'
-    'excludedBrandId'
-    'companyId'
-    'excludedCompanyId'
-    'industryId'
-    'sentFrom'
-    'fromAddress'
-    'headerKey'
-    'headerValue'
-    'receivedUsingMta'
-    'mobileReady'
-    'hasCreative'
-    'onlyCommercial'
-    'emojiPresent'
-    'readPercentage'
-    'readDeletedPercentage'
-    'deletedPercentage'
-    'inboxPercentage'
-    'spamPercentage'
-    'projectedVolumeFilter'
-    'secondaryProjectedVolumeFilter'
-    'droveTrafficToDomain'
-    'sendFromIp'
-    'espId'
-    'espStartIp'
-    'espEndIp'
-    'espRedirectDomain'
+    'subject',
+    'body',
+    'campaignLengthFilter',
+    'sendingDomain',
+    'excludeSendingDomain',
+    'brandId',
+    'excludedBrandId',
+    'companyId',
+    'excludedCompanyId',
+    'industryId',
+    'sentFrom',
+    'fromAddress',
+    'headerKey',
+    'headerValue',
+    'receivedUsingMta',
+    'mobileReady',
+    'hasCreative',
+    'onlyCommercial',
+    'emojiPresent',
+    'readPercentage',
+    'readDeletedPercentage',
+    'deletedPercentage',
+    'inboxPercentage',
+    'spamPercentage',
+    'projectedVolumeFilter',
+    'secondaryProjectedVolumeFilter',
+    'droveTrafficToDomain',
+    'sendFromIp',
+    'espId',
+    'espStartIp',
+    'espEndIp',
+    'espRedirectDomain',
     'espRedirectString',
     'campaignTargetCountry',
     'excludedCampaignTargetCountry',
     'page',
     'per_page',
+    'qd',
     'order',
     'embed'
 }

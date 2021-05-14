@@ -1,4 +1,6 @@
 from .base import Resource
+import json
+import requests
 
 param_model = {
     'domain',
@@ -31,7 +33,7 @@ class Domain_Info(Resource):
         Returns the average sending volume of a list of brands over a user defined time period (average can be per
         month or per day) and every ESPs from domains associated with the brand
 
-        :param domain:  List of strings.
+        :param domain:  List of strings.  Domain to find info for (multiple allowed)
 
         :param str endDate:  Endpoint of the requested date range concerning volume
         data with a format of yyyy-mm-dd. Defaults to current date if no argument provided. This date is exclusive:
@@ -58,13 +60,12 @@ class Domain_Info(Resource):
 
         return apiResponse
 
-    def get_brand_volume_and_esps_extended(self, **kwargs):
+    def get_brand_volume_and_esps_extended(self, domains, **kwargs):
         """
         Returns the average sending volume of a list of brands over a defined time period (average can be per month
         or per day) and every ESPs from domains associated with the brand.
 
-        Request body should be a list of domains.
-
+        :param domains:  List of strings.  Domains to find info for (multiple allowed)
         :param str endDate:  Endpoint of the requested date range concerning volume data with a format of yyyy-mm-dd.
         Defaults to current date if no argument provided. This date is exclusive: data concerning the given date will
         not be included in volume average.
@@ -86,6 +87,7 @@ class Domain_Info(Resource):
         endpoint = "/brand_volume_average_and_esps"
         apiUrl = self.uri + endpoint
         parameters = self.SetParameters(kwargs, param_model)
-        apiResponse = self.request("POST", apiUrl, params=parameters)
+        apiResponse = self.request("POST", apiUrl, params=parameters, json=domains)
+
 
         return apiResponse

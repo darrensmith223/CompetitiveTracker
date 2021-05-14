@@ -1,10 +1,8 @@
-from .intelligence import Intelligence, Domain
-# from .deliverability import Deliverability
-# from .domains import Domains
-# from .intelliseeds import Intelliseeds
-# from .ping import Ping
-# from .regions import Regions
-# from .seeds import Seeds
+from .domain_info import Domain_Info
+from .intelligence import Brand, Campaign, IpDeliverability, Intelligence  # , Domain
+from .overlaps import Overlaps
+from .ping import Ping
+from .search import Search
 
 
 __version__ = '1.0.0'
@@ -17,10 +15,8 @@ class CompetitiveTracker(object):
 
         self.base_uri = 'http://' + base_uri + '/v' + version + '/competitive'
         self.api_key = api_key
+        self.domain_info = Domain_Info(self.base_uri, self.api_key)
         self.intelligence = Intelligence(self.base_uri, self.api_key)
-        # self.deliverability = Deliverability(self.base_uri, self.api_key)
-        # self.domains = Domains(self.base_uri, self.api_key)
-        # self.intelliseeds = Intelliseeds(self.base_uri, self.api_key)
-        # self.ping = Ping(self.base_uri, self.api_key)
-        # self.regions = Regions(self.base_uri, self.api_key)
-        # self.seeds = Seeds(self.base_uri, self.api_key)
+        self.overlaps = Overlaps(self.base_uri, self.api_key)
+        self.ping = Ping(self.base_uri, self.api_key)
+        self.search = Search(self.base_uri, self.api_key)

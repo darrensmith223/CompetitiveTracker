@@ -1,7 +1,6 @@
 from .base import Resource
 
 param_model = {
-
     }
 
 class Ping(Resource):
