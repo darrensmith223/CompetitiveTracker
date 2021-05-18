@@ -32,7 +32,7 @@ def test_get_brand_volume_and_esps_extended():
         content_type='application/json',
         body='{"results": "yay"}'
     )
-    json_output = ct.domain_info.get_brand_volume_and_esps_extended(domain=domain)
+    json_output = ct.domain_info.get_brand_volume_and_esps_extended(domains=domain)
     assert json_output == 'yay'
 
 
