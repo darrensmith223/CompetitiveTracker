@@ -24,7 +24,7 @@ def test_get_narrowed_overlap():
     ct = CompetitiveTracker("fake-key")
     domain = "test_domain"
     overlap = ["test-overlap-domain"]
-    endpoint = "/%s" % domain
+    endpoint = "/narrow/%s" % domain
     url = ct.overlaps.uri + endpoint
     responses.add(
         responses.GET,

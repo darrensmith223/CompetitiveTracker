@@ -5,8 +5,8 @@ from competitivetracker import CompetitiveTracker
 @responses.activate
 def test_campaign_get_campaign():
     ct = CompetitiveTracker("fake-key")
-    domain = "test_domain"
-    endpoint = "/brand_volume_average_and_esps"
+    campaignId = "test-campaign"
+    endpoint = "/campaign/%s" % campaignId
     url = ct.intelligence.campaign.uri + endpoint
     responses.add(
         responses.GET,
@@ -15,7 +15,7 @@ def test_campaign_get_campaign():
         content_type='application/json',
         body='{"results": "yay"}'
     )
-    json_output = ct.domain_info.get_brand_volume_and_esps_extended(domains=domain)
+    json_output = ct.intelligence.campaign.get_campaign(campaignId=campaignId)
     assert json_output == 'yay'
 
 
