@@ -76,7 +76,7 @@ class Search(Resource):
         :param bool hasCreative:  Campaigns with/without creatives
 
         :param bool onlyCommercial:  True for commercial campaigns, false for daily low-volume rollups, and leave
-        unset (null) for both
+            unset (null) for both
 
         :param bool emojiPresent:  Campaigns with/without emojis in the subject
         :param str readPercentage:  Read percentage filter (examples '>,20' '<,5' '=,2')
@@ -87,13 +87,13 @@ class Search(Resource):
         :param str projectedVolumeFilter:  Projected Total Volume filter (examples '>,2000000' '<,50000' '=,324541')
 
         :param str secondaryProjectedVolumeFilter:  Secondary Projected Total Volume filter
-        (examples '>,2000000' '<,50000' '=,324541')
+            (examples '>,2000000' '<,50000' '=,324541')
 
         :param droveTrafficToDomain:  List of strings.  Filter search to campaigns that drive traffic to certain domains
-        (multiple allowed)
+            (multiple allowed)
 
         :param sendFromIp:  List of strings.  Filter search to campaigns that were sent from certain ips
-        (multiple allowed)
+            (multiple allowed)
 
         :param int espId:  Filter search to a specific ESP
         :param str espStartIp:  The start IP of the sending ESP
@@ -102,10 +102,10 @@ class Search(Resource):
         :param str espRedirectString:  The match the redirect string of the sending ESP
 
         :param campaignTargetCountry:  List of strings.  Filter search to campaigns with a specific target country code
-        (multiple allowed)
+            (multiple allowed)
 
         :param excludedCampaignTargetCountry:  List of strings.  Filter out campaigns with a specific target country
-        code (multiple allowed)
+            code (multiple allowed)
 
         :param int page:  The page to query for in pagination
         :param int per_page:  The amount of records per page you wish to query for (max 100)
@@ -114,7 +114,7 @@ class Search(Resource):
             Accepts:  ``firstSeen``, -firstSeen, ``lastSeen``, ``-lastSeen``, ``inbox``, ``-inbox``, ``spam``, ``-spam``
 
         :param str embed:  The objects within the return model you wish to embed in the form of
-        'customer, customer.name, etc'
+            'customer, customer.name, etc'
 
             Accepts:  ``sendingIps``, ``rawEmail``, ``ispPlacements``, ``links``, ``headers`` (headers is only available
             for ESP-owned accounts).
