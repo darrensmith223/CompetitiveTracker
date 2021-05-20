@@ -36,7 +36,7 @@ class Overlaps(Resource):
             Defaults to ``False``
 
         :param str embed:  The objects within the return model you wish to embed in the form of
-        'customer, customer.name, etc'
+            'customer, customer.name, etc'
 
             Accepts:  ``readRatePercent``, ``projectedReach``
 
@@ -79,7 +79,7 @@ class Overlaps(Resource):
             Defaults to ``100``
 
         :param str embed:  The objects within the return model you wish to embed in the form of
-        'customer, customer.name, etc'
+            'customer, customer.name, etc'
 
             Accepts:  ``readRatePercent``, ``projectedReach``
 

@@ -71,7 +71,7 @@ class Campaign(Resource):
 
         :param int campaignId: (Required) The id of the campaign you wish to evaluate
         :param str embed:  The objects within the return model you wish to embed in the
-        form of 'customer, customer.name, etc'
+            form of 'customer, customer.name, etc'
 
             Accepts:  ``sendingIps``, ``rawEmail``, ``ispPlacements``, ``links``, ``headers`` (headers is
             only available for ESP-owned accounts).
@@ -181,7 +181,7 @@ class Domain(Resource):
             Examples:  ``since:20190601``, ``between:20191001000000,20191002060000``, ``daysBack:30``
 
         :param str embed:  The objects within the return model you wish to embed in the form of
-        'customer, customer.name, etc'
+            'customer, customer.name, etc'
 
             Accepts:  ``ispPlacements``
 
@@ -229,7 +229,7 @@ class Domain(Resource):
             Defaults to ``daysBack:30``
 
         :param str embed:  The objects within the return model you wish to embed in the form of
-        'customer, customer.name, etc'
+            'customer, customer.name, etc'
 
             Accepts: ``ispPlacements``
 
@@ -256,7 +256,7 @@ class Domain(Resource):
             Defaults to ``daysBack:30``
 
         :param str embed:  The objects within the return model you wish to embed in the form of
-        'customer, customer.name, etc'
+            'customer, customer.name, etc'
 
             Accepts:  ``ispPlacements``
 
@@ -307,7 +307,7 @@ class IpDeliverability(Resource):
             Examples:  ``since:20190601``, ``between:20191001000000,20191002060000``, ``daysBack:30``
 
         :param str lastBlock:  The last block of the range to request (last octet for IPv4 or last hextet in IPv6,
-        max 256 return IPs)
+            max 256 return IPs)
 
         :return:  A ``list`` of object ``dict`` containing deliverability and reputation stats.
         """
@@ -332,10 +332,10 @@ class IpDeliverability(Resource):
             Examples:  ``since:20190601``, ``between:20191001000000,20191002060000``, ``daysBack:30``
 
         :param str lastBlock:  The last block of the range to request (last octet for
-        IPv4 or last hextet in IPv6, max 256 return IPs)
+            IPv4 or last hextet in IPv6, max 256 return IPs)
 
         :param str embed:  The objects within the return model you wish to embed in the form of 'customer,
-        customer.name, etc'
+            customer.name, etc'
 
             Accepts:  ``ispPlacements``
 
