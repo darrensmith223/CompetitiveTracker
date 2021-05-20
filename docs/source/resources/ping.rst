@@ -15,7 +15,7 @@ troubleshooting, as shown below:
 
 
 Ping the Competitive Tracker Service
-------------------------------
+------------------------------------
 
 .. code-block:: python
 
