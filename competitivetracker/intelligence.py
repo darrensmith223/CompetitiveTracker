@@ -51,7 +51,7 @@ class Campaign(Resource):
     def get_target_country(self, campaignId, **kwargs):
         """
         Returns (or evaluates from scratch, for historical campaigns) the likely target country in the form of an
-        ISO 3166-1 alpha-2 String. (Examples: ``US``, ``CA``, ``MX``).
+        ISO 3166-1 alpha-2 String.  (Examples: ``US``, ``CA``, ``MX``).
 
         :param int campaignId:  (Required) The id of the campaign you wish to evaluate.
 
@@ -66,7 +66,7 @@ class Campaign(Resource):
 
     def get_campaign(self, campaignId, **kwargs):
         """
-        Gets a campaign by id if found. Detected sending or forwarding IPs are accessible via the sendingIps
+        Gets a campaign by id if found.  Detected sending or forwarding IPs are accessible via the sendingIps
         embed option.
 
         :param int campaignId: (Required) The id of the campaign you wish to evaluate
@@ -91,7 +91,7 @@ class Domain(Resource):
 
     def get_campaigns(self, domain, **kwargs):
         """
-        Search for campaigns from a certain sending domain. Detected sending or forwarding IPs are accessible via
+        Search for campaigns from a certain sending domain.  Detected sending or forwarding IPs are accessible via
         the sendingIps embed option.
 
         :param str domain:  (Required) The domain to use in the request
@@ -101,7 +101,9 @@ class Domain(Resource):
 
             Examples:  ``since:20190601``, ``between:20191001000000,20191002060000``, ``daysBack:30``
 
-        :param str campaignLengthFilter:  Length filter in days for the campaign (examples '>,2' '<,5' '=,1')
+        :param str campaignLengthFilter:  Length filter in days for the campaign
+
+            Examples: ``>,2``, ``<,5``, ``=,1``
         :param int page:  The page to query for in pagination
         :param int per_page:  The amount of records per page you wish to query for (max 100)
         :param str order:  The property to sort by ('property' for descending, '-property' for ascending)
@@ -109,7 +111,8 @@ class Domain(Resource):
             Accepts:  ``firstSeen``, ``-firstSeen``, ``lastSeen``, ``-lastSeen``, ``inbox``, ``-inbox``, ``spam``,
             ``-spam``
 
-        :param str embed:  The objects within the return model you wish to embed in the form of 'customer,customer.name,etc'
+        :param str embed:  The objects within the return model you wish to embed in the form of
+            'customer,customer.name,etc'
 
             Accepts:  ``sendingIps``, ``rawEmail``, ``ispPlacements``, ``links``, ``headers`` (headers is only
             available for ESP-owned accounts).
@@ -169,7 +172,7 @@ class Domain(Resource):
 
     def get_volumes(self, domain, **kwargs):
         """
-        Find sending volumes (commercial and non-commercial) within a period, for a given domain. Collected into
+        Find sending volumes (commercial and non-commercial) within a period, for a given domain.  Collected into
         date groups based on days in date range: "DAY" for 31 days and less, "WEEK" for 182 days and less,
         "MONTH" for greater than 182 days.
 
