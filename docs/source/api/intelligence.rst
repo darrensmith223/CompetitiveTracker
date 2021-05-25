@@ -1,8 +1,5 @@
 .. module:: competitivetracker.intelligence
 
-:mod:`competitivetracker.intelligence`
-======================================
-
 :mod:`competitivetracker.intelligence.brand`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. autoclass:: Brand
