@@ -9,7 +9,7 @@ class Ping(Resource):
 
     def ping_service(self):
         """
-        Ping the service to verify it is reachable
+        Ping the service to verify it is reachable.
 
         :return:  A ``str`` object.  A successful ping will return the string 'pong'.
         """

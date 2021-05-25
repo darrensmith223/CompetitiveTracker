@@ -48,18 +48,21 @@ class Search(Resource):
 
     def search(self, **kwargs):
         """
-        Search for campaigns with many different criteria. Detected sending or forwarding IPs are accessible via the
+        Search for campaigns with many different criteria.  Detected sending or forwarding IPs are accessible via the
         sendingIps embed option.
 
         :param str qd:  (Required) A date range query parameter.
 
-                Accepts:  ``since:YYYYMMDD``, ``between:YYYYMMDDhhmmss,YYYYMMDDhhmmss``, and ``daysBack:N``.
+            Accepts:  ``since:YYYYMMDD``, ``between:YYYYMMDDhhmmss,YYYYMMDDhhmmss``, and ``daysBack:N``.
 
-                Examples:  ``since:20190601``, ``between:20191001000000,20191002060000``, ``daysBack:30``
+            Examples:  ``since:20190601``, ``between:20191001000000,20191002060000``, ``daysBack:30``
 
         :param str subject:  Subject search criteria
         :param str body:  Body search criteriaSubject search criteria
-        :param str campaignLengthFilter:  Length filter in days for the campaign (examples '>,2' '<,5' '=,1')
+        :param str campaignLengthFilter:  Length filter in days for the campaign
+
+            Examples: ``>,2``, ``<,5``, ``=,1``
+
         :param sendingDomain:  List of strings.  Filter search to specific sending domains (multiple allowed)
         :param excludeSendingDomain:  List of strings.  Filter out specific sending domains (multiple allowed)
         :param brandId:  List of int.  Filter search to specific brands (multiple allowed)
@@ -75,19 +78,32 @@ class Search(Resource):
         :param bool mobileReady:  Campaigns with/without mobile ready format
         :param bool hasCreative:  Campaigns with/without creatives
 
-        :param bool onlyCommercial:  True for commercial campaigns, false for daily low-volume rollups, and leave
-            unset (null) for both
+        :param bool onlyCommercial:  ``True`` for commercial campaigns, ``False`` for daily low-volume rollups,
+            and leave unset (null) for both
 
         :param bool emojiPresent:  Campaigns with/without emojis in the subject
-        :param str readPercentage:  Read percentage filter (examples '>,20' '<,5' '=,2')
-        :param str readDeletedPercentage:  Read+Deleted percentage filter (examples '>,20' '<,5' '=,2')
-        :param str deletedPercentage:  Deleted percentage filter (examples '>,20' '<,5' '=,2')
-        :param str inboxPercentage:  Inbox percentage filter (examples '>,20' '<,5' '=,2')
-        :param str spamPercentage:  Spam percentage filter (examples '>,20' '<,5' '=,2')
-        :param str projectedVolumeFilter:  Projected Total Volume filter (examples '>,2000000' '<,50000' '=,324541')
+        :param str readPercentage:  Read percentage filter
+
+            Examples: ``>,20``, ``<,5``, ``=,2``
+        :param str readDeletedPercentage:  Read+Deleted percentage filter
+
+            Examples: ``>,20``, ``<,5``, ``=,2``
+        :param str deletedPercentage:  Deleted percentage filter
+
+            Examples: ``>,20``, ``<,5``, ``=,2``
+        :param str inboxPercentage:  Inbox percentage filter
+
+            Examples: ``>,20``, ``<,5``, ``=,2``
+        :param str spamPercentage:  Spam percentage filter
+
+            Examples: ``>,20``, ``<,5``, ``=,2``
+        :param str projectedVolumeFilter:  Projected Total Volume filter
+
+            Examples: ``>,2000000``, ``<,50000``, ``=,324541``
 
         :param str secondaryProjectedVolumeFilter:  Secondary Projected Total Volume filter
-            (examples '>,2000000' '<,50000' '=,324541')
+
+            Examples:  ``>,2000000``, ``<,50000``, ``=,324541``
 
         :param droveTrafficToDomain:  List of strings.  Filter search to campaigns that drive traffic to certain domains
             (multiple allowed)

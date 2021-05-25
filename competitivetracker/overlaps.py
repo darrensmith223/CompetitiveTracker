@@ -51,10 +51,11 @@ class Overlaps(Resource):
 
     def get_narrowed_overlap(self, domain, **kwargs):
         """
-        Determines the overlap for a domain against a specific set and include attributes about the overlap
+        Determines the overlap for a domain against a specific set and include attributes about the overlap.
 
         :param str domain:  (Required) The domain to use in the request
-        :param overlapDomain:  (Required) List of strings.  The other domains to analyze overlap with (multiple params accepted)
+        :param overlapDomain:  (Required) List of strings.  The other domains to analyze overlap with (multiple params
+            accepted)
 
         :return:  A ``dict`` containing overlap details.
         """
