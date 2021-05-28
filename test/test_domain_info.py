@@ -15,16 +15,6 @@ def test_get_brand_volume_and_esps():
         content_type='application/json',
         body='{"results": "yay"}'
     )
-    json_output = ct.domain_info.get_brand_volume_and_esps(domain=domain)
-    assert json_output == 'yay'
-
-
-@responses.activate
-def test_get_brand_volume_and_esps_extended():
-    ct = CompetitiveTracker("fake-key")
-    domain = "test_domain"
-    endpoint = "/brand_volume_average_and_esps"
-    url = ct.domain_info.uri + endpoint
     responses.add(
         responses.POST,
         url,
@@ -32,7 +22,7 @@ def test_get_brand_volume_and_esps_extended():
         content_type='application/json',
         body='{"results": "yay"}'
     )
-    json_output = ct.domain_info.get_brand_volume_and_esps_extended(domains=domain)
+    json_output = ct.domain_info.get_brand_volume_and_esps(domains=domain)
     assert json_output == 'yay'
 
 
