@@ -1,10 +1,11 @@
 Search
 ======
 
-Cool text about search
-
-Include links:
-https://support.emailanalyst.com/en/articles/2414635-how-to-maximize-advanced-search-in-competitive-tracker
+Competitive Tracker's Search is an incredibly powerful tool for users to retrieve campaign details about the mailings
+sent by other organizations.  Competitive Search capabilities empowers teams with tremendous data to help with
+everything from conducting market research, to industry benchmarking, and sales enablement.  There are numerous filters
+and parameters that can be applied to the search query that will quickly surface campaigns of interest.  All campaigns
+sent by a domain over the past 3 days can be retrieved using the `Competitive Tracker API`_, as shown below:
 
 
 .. code-block:: python
@@ -18,6 +19,14 @@ https://support.emailanalyst.com/en/articles/2414635-how-to-maximize-advanced-se
         sendingDomain="example.com"
     )
     print(response)
+
+
+Additional tips and tricks to `maximize the Advanced Search`_ in Competitive Tracker are also available in the
+documentation.
+
+
+.. _Competitive Tracker API: http://api.edatasource.com/docs/#/competitive
+.. _maximize the Advanced Search: https://support.emailanalyst.com/en/articles/2414635-how-to-maximize-advanced-search-in-competitive-tracker
 
 
 Search for Campaigns
@@ -68,6 +77,11 @@ When using keywords to search, more complex queries can be structured with the f
 Filter on Specific Industries
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Filtering on specific industries requires the numerical industryId.  The industryId can be retrieved using the Core
+class, by either retrieving the complete list of all industries with corresponding industryId using
+`competitivetracker.core.industries`, or by searching for industries with a search text string using
+`competitivetracker.core.discover`.
+
 .. code-block:: python
 
     from competitivetracker import CompetitiveTracker
@@ -82,6 +96,11 @@ Filter on Specific Industries
 
 Filter on Specific Companies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Filtering on specific companies requires the numerical companyId.  The companyId can be retrieved using the Core
+class, by either retrieving the complete list of all companies with corresponding companyId using
+`competitivetracker.core.companies`, or by searching for companies with a search text string using
+`competitivetracker.core.discover`.
 
 .. code-block:: python
 
@@ -98,6 +117,11 @@ Filter on Specific Companies
 
 Filter on Specific Brands
 ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Filtering on specific brands requires the numerical brandId.  The brandId can be retrieved using the Core
+class, by either retrieving the complete list of all brands with corresponding brandId using
+`competitivetracker.core.brands`, or by searching for brands with a search text string using
+`competitivetracker.core.discover`.
 
 .. code-block:: python
 
@@ -145,6 +169,11 @@ Exclude Campaigns without Creatives
 
 Filter on ESP
 ^^^^^^^^^^^^^
+
+Filtering on specific ESPs requires the numerical espId.  The espId can be retrieved using the Core
+class, by either retrieving the complete list of all ESPs with corresponding espId using
+`competitivetracker.core.esps`, or by searching for ESPs with a search text string using
+`competitivetracker.core.discover`.
 
 .. code-block:: python
 

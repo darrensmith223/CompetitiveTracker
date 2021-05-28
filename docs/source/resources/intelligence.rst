@@ -1,9 +1,8 @@
 Intelligence
 ============
 
-Cool text about intelligence
-
-Includes the following classes:
+Competitive Intelligence enables a user to get information about the email programs of different organizations by
+accessing data across a number of different facets.  Intelligence includes the following classes:
 
 * `competitivetracker.intelligence.brand`
 * `competitivetracker.intelligence.campaign`
@@ -14,7 +13,11 @@ Includes the following classes:
 Brand
 -----
 
-Cool text about Brand Intelligence
+Brand Intelligence enables a user to access details about the top sending domains for a brand.  Where the numerical
+brandId is needed, the brandId can be retrieved by either retrieving the complete list of all brands with corresponding
+brandId using `competitivetracker.core.brands`, or by searching for brands with a search text string using
+`competitivetracker.core.discover`.  The top sending domains for a brand can be retrieved using the
+`Competitive Tracker API`_, as shown below:
 
 .. code-block:: python
 
@@ -24,6 +27,10 @@ Cool text about Brand Intelligence
 
     response = ct.intelligence.brand.get_top_domains(brandId=1)
     print(response)
+
+
+.. _Competitive Tracker API: http://api.edatasource.com/docs/#/competitive
+
 
 Get Top Domains for a Brand
 ***************************
@@ -40,7 +47,11 @@ Get Top Domains for a Brand
 Campaign
 --------
 
-Cool text about Campaign Intelligence
+Campaign Intelligence enables a user to get details about a specific campaign that was delivered by a sender.  Where
+the numerical campaignId is needed, the campaignId can be retrieved from the results of any campaign query function.
+For example, the campaignId can be retrieved from `competitivetracker.intelligence.domain.get_campaigns()` and
+`competitivetracker.search.search()`.  The campaign details can be retrieved for a specific campaignId by using
+the `Competitive Tracker API`_, as shown below:
 
 .. code-block:: python
 
@@ -79,7 +90,8 @@ Get Target Country for a Campaign
 Domain
 ------
 
-Cool text about Domain Intelligence
+Domain Intelligence enables a user to get details about a sending domain.  The details for all campaigns delivered from
+a sending domain over the past 3 days can be retrieved using the `Competitive Tracker API`_, as shown below:
 
 .. code-block:: python
 
@@ -196,7 +208,9 @@ Get ISP Placement for a Domain
 IP Deliverability
 -----------------
 
-Cool text about IP Deliverability Intelligence
+IP Deliverability Intelligence enables a user to get deliverability details from an IP address or range of IP addresses
+that are used to send email.  The deliverability details of a sending IP address from the past 3 days can be retrieved
+using the `Competitive Tracker API`_, as shown below:
 
 .. code-block:: python
 

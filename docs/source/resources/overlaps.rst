@@ -1,7 +1,9 @@
 Overlaps
 ========
 
-Cool text about overlaps
+Overlap details enable a user to understand what domains are sending email to the same recipient lists, and to what
+degree the mailing lists overlap.  The overlapping sending domains for a specific domain, and the related details can
+be retrieved using the `Competitive Tracker API`_, as shown below:
 
 .. code-block:: python
 
@@ -9,8 +11,11 @@ Cool text about overlaps
 
     ct = CompetitiveTracker("API_KEY")
 
-    response = ct.____
+    response = ct.overlaps.get_domain_overlaps(domain="example.com")
     print(response)
+
+
+.. _Competitive Tracker API: http://api.edatasource.com/docs/#/competitive
 
 
 Get Overlap Details for a Domain
@@ -28,7 +33,8 @@ Get Overlap Details for a Domain
 Overlap Across all Industries
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-By default, only the overlaps for a domain within the same industry will be returned.  To show the overlaps across all industries, use the parameter `ignoreIndustry`, as shown:
+By default, only the overlaps for a domain within the same industry will be returned.  To show the overlaps across
+all industries, use the parameter ``ignoreIndustry``, as shown:
 
 .. code-block:: python
 
