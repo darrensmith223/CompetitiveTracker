@@ -15,7 +15,7 @@
 .. autoclass:: Domain
    :members:
 
-:mod:`competitivetracker.intelligence.IpDeliverability`
+:mod:`competitivetracker.intelligence.ipdeliverability`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. autoclass:: IpDeliverability
    :members:
