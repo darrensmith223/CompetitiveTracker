@@ -15,12 +15,27 @@
 .. autoclass:: Discover
    :members:
 
+:mod:`competitivetracker.core.domains`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. autoclass:: Domains
+   :members:
+
 :mod:`competitivetracker.core.esps`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. autoclass:: Esps
    :members:
 
+:mod:`competitivetracker.core.graph`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. autoclass:: Graph
+   :members:
+
 :mod:`competitivetracker.core.industries`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. autoclass:: Industries
+   :members:
+
+:mod:`competitivetracker.core.ping`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. autoclass:: Ping
    :members:
