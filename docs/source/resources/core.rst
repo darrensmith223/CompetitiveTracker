@@ -7,8 +7,11 @@ the Competitive Tracker platform, such as entity identifiers.  Core includes the
 * `competitivetracker.core.brands`
 * `competitivetracker.core.companies`
 * `competitivetracker.core.discover`
+* `competitivetracker.core.domains`
 * `competitivetracker.core.esps`
+* `competitivetracker.core.graphs`
 * `competitivetracker.core.industries`
+* `competitivetracker.core.ping`
 
 
 Brands
@@ -166,6 +169,12 @@ To search for industries and retrieve the respective industryId, pass the search
 
 The search text can be either a complete or a partial string.
 
+Domains
+-------
+
+Function
+********
+
 
 ESPs
 ----
@@ -195,6 +204,13 @@ Get All ESPs
     ct = CompetitiveTracker("API_KEY")
 
     response = ct.core.esps.get_all_esps()
+
+
+Graph
+-----
+
+Function
+********
 
 
 Industries
@@ -227,3 +243,9 @@ Get All Industries
 
     response = ct.core.industries.get_all_industries()
 
+
+Ping
+----
+
+Function
+********
