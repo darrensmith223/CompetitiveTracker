@@ -43,7 +43,31 @@ Get All Brands
 
     ct = CompetitiveTracker("API_KEY")
 
-    response = ct.core.brands.get_all_brands()
+    ct.core.brands.get_all_brands()
+
+
+Get Brand Details From ID
+*************************
+
+.. code-block:: python
+
+    from competitivetracker import CompetitiveTracker
+
+    ct = CompetitiveTracker("API_KEY")
+
+    ct.core.brands.get_brand_details(brandId=1)
+
+
+Get All Domains for a Brand
+***************************
+
+.. code-block:: python
+
+    from competitivetracker import CompetitiveTracker
+
+    ct = CompetitiveTracker("API_KEY")
+
+    ct.core.brands.get_all_brand_domains(brandId=1)
 
 
 Companies
@@ -73,7 +97,33 @@ Get All Companies
 
     ct = CompetitiveTracker("API_KEY")
 
-    response = ct.core.companies.get_all_companies()
+    ct.core.companies.get_all_companies()
+
+
+Get Company Details From ID
+***************************
+
+.. code-block:: python
+
+    from competitivetracker import CompetitiveTracker
+
+    ct = CompetitiveTracker("API_KEY")
+
+    ct.core.companies.get_company_details(companyId=1)
+
+
+Get All Brands for a Company
+****************************
+
+
+.. code-block:: python
+
+    from competitivetracker import CompetitiveTracker
+
+    ct = CompetitiveTracker("API_KEY")
+
+    ct.core.companies.get_all_company_brands(companyId=1)
+
 
 Discover
 --------
@@ -96,6 +146,25 @@ retrieved using the `Competitive Tracker API`_, as shown below:
     print(response)
 
 
+Search for Any Match
+********************
+
+To search across all entities and return the name and ID of any match for a string, pass the search text using
+the ``q`` parameter, as shown:
+
+.. code-block:: python
+
+    from competitivetracker import CompetitiveTracker
+
+    ct = CompetitiveTracker("API_KEY")
+
+    ct.core.discover.search(
+        q="example_text"
+    )
+
+The search text can be either a complete or a partial string.
+
+
 Search for Brands
 *****************
 
@@ -107,7 +176,7 @@ To search for brands and retrieve the respective brandId, pass the search text u
 
     ct = CompetitiveTracker("API_KEY")
 
-    response = ct.core.discover.search_brands(
+    ct.core.discover.search_brands(
         q="example_brand"
     )
 
@@ -125,7 +194,7 @@ To search for companies and retrieve the respective companyId, pass the search t
 
     ct = CompetitiveTracker("API_KEY")
 
-    response = ct.core.discover.search_companies(
+    ct.core.discover.search_companies(
         q="example_company"
     )
 
@@ -144,7 +213,7 @@ To search for ESPs and retrieve the respective espId, pass the search text using
 
     ct = CompetitiveTracker("API_KEY")
 
-    response = ct.core.discover.search_esps(
+    ct.core.discover.search_esps(
         q="example_ESP"
     )
 
@@ -163,17 +232,70 @@ To search for industries and retrieve the respective industryId, pass the search
 
     ct = CompetitiveTracker("API_KEY")
 
-    response = ct.core.discover.search_industries(
+    ct.core.discover.search_industries(
         q="example_industry"
     )
 
 The search text can be either a complete or a partial string.
 
+
+Search for Domains
+******************
+
+To search for domains and retrieve the respective domainId, pass the search text using the ``q`` parameter, as shown:
+
+.. code-block:: python
+
+    from competitivetracker import CompetitiveTracker
+
+    ct = CompetitiveTracker("API_KEY")
+
+    ct.core.discover.search_domains(
+        q="example_domain"
+    )
+
+The search text can be either a complete or a partial string.
+
+
 Domains
 -------
 
-Function
-********
+The ``domains`` class enables users to retrieve details about domains, including getting a list of all domains and
+the respective domainId.  Domains can be used in conjunction with other Competitive Tracker classes when the
+domainId is required.  All domains and the respective domainId can be retrieved using the
+`Competitive Tracker API`_, as shown below:
+
+.. code-block:: python
+
+    from competitivetracker import CompetitiveTracker
+
+    ct = CompetitiveTracker("API_KEY")
+
+    response = ct.core.domains.get_all_domains()
+    print(response)
+
+
+Get All Domains
+***************
+
+.. code-block:: python
+
+    from competitivetracker import CompetitiveTracker
+
+    ct = CompetitiveTracker("API_KEY")
+
+    ct.core.domains.get_all_domains()
+
+Get Domain Details From ID
+**************************
+
+.. code-block:: python
+
+    from competitivetracker import CompetitiveTracker
+
+    ct = CompetitiveTracker("API_KEY")
+
+    ct.core.domains.get_domain_details(domainId=1)
 
 
 ESPs
@@ -203,14 +325,60 @@ Get All ESPs
 
     ct = CompetitiveTracker("API_KEY")
 
-    response = ct.core.esps.get_all_esps()
+    ct.core.esps.get_all_esps()
+
+Get ESP Details From ID
+***********************
+
+.. code-block:: python
+
+    from competitivetracker import CompetitiveTracker
+
+    ct = CompetitiveTracker("API_KEY")
+
+    ct.core.esps.get_esp_details(espId=1)
 
 
 Graph
 -----
 
-Function
-********
+Graphs enable a user to retrieve the graph details for a company using a variety of methods.
+
+
+Get Company From String
+***********************
+
+.. code-block:: python
+
+    from competitivetracker import CompetitiveTracker
+
+    ct = CompetitiveTracker("API_KEY")
+
+    ct.core.graph.get_company(q="example_text")
+
+
+Get Company From Domain
+***********************
+
+.. code-block:: python
+
+    from competitivetracker import CompetitiveTracker
+
+    ct = CompetitiveTracker("API_KEY")
+
+    ct.core.graph.get_company_from_domain(domainName="example_domain")
+
+
+Get Company From ID
+*******************
+
+.. code-block:: python
+
+    from competitivetracker import CompetitiveTracker
+
+    ct = CompetitiveTracker("API_KEY")
+
+    ct.core.graph.get_company_from_domain(companyId=1)
 
 
 Industries
@@ -241,11 +409,47 @@ Get All Industries
 
     ct = CompetitiveTracker("API_KEY")
 
-    response = ct.core.industries.get_all_industries()
+    ct.core.industries.get_all_industries()
+
+
+Get Industry Details From ID
+****************************
+
+.. code-block:: python
+
+    from competitivetracker import CompetitiveTracker
+
+    ct = CompetitiveTracker("API_KEY")
+
+    ct.core.industries.get_industry_details(industryId=1)
+
+
+Get All Brands for an Industry
+******************************
+
+.. code-block:: python
+
+    from competitivetracker import CompetitiveTracker
+
+    ct = CompetitiveTracker("API_KEY")
+
+    ct.core.industries.get_all_industry_brands(industryId=1)
 
 
 Ping
 ----
 
-Function
-********
+Ping enables a user to verify that the core module is accessible.  The Core ping is separate from the Competitive
+Tracker ping because the Core module interfaces with a different service than the primary Competitive Tracker service.
+
+
+Ping the Core Service
+*********************
+
+.. code-block:: python
+
+    from competitivetracker import CompetitiveTracker
+
+    ct = CompetitiveTracker("API_KEY")
+
+    ct.core.ping.ping_service()
