@@ -81,7 +81,7 @@ def test_companies_get_company_details():
         content_type='application/json',
         body='{"results": "yay"}'
     )
-    json_output = ct.core.companies.get_all_brand_domains(companyId=companyId)
+    json_output = ct.core.companies.get_company_details(companyId=companyId)
     assert json_output == 'yay'
 
 
