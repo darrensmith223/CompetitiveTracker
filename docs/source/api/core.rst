@@ -1,4 +1,6 @@
 .. module:: competitivetracker.core
+===================================
+
 
 :mod:`competitivetracker.core.brands`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

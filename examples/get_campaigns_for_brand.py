@@ -12,3 +12,4 @@ results = ct.search.search(
     qd=time_period,
     brandId=brandId
 )  # Use the search function to query for all campaigns sent by the brand during the specified time window
+print(results)
