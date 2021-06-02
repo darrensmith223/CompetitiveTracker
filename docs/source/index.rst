@@ -61,7 +61,7 @@ Further Examples
 
 See the `CompetitiveTracker Examples`_.
 
-.. _CompetitiveTracker Examples: Examples: https://github.com/darrensmith223/CompetitiveTracker/tree/main/examples
+.. _CompetitiveTracker Examples: https://github.com/darrensmith223/CompetitiveTracker/tree/main/examples
 
 
 API reference
@@ -69,7 +69,7 @@ API reference
 
 See the `CompetitiveTracker API Reference`_.
 
-.. _CompetitiveTracker API Reference: API Reference: http://api.edatasource.com/docs/#/
+.. _CompetitiveTracker API Reference: http://api.edatasource.com/docs/#/
 
 
 Contribute
