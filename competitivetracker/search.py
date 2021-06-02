@@ -127,7 +127,8 @@ class Search(Resource):
         :param int per_page:  The amount of records per page you wish to query for (max 100)
         :param str order:  The property to sort by ('property' for descending, '-property' for ascending)
 
-            Accepts:  ``firstSeen``, -firstSeen, ``lastSeen``, ``-lastSeen``, ``inbox``, ``-inbox``, ``spam``, ``-spam``
+            Accepts:  ``firstSeen``, ``-firstSeen``, ``lastSeen``, ``-lastSeen``, ``inbox``, ``-inbox``, ``spam``,
+            ``-spam``
 
         :param str embed:  The objects within the return model you wish to embed in the form of
             'customer, customer.name, etc'

@@ -33,7 +33,7 @@ class Industries(Resource):
         :param int per_page:  The amount of records per page you wish to query for (max 100)
         :param str order:  The property to sort by ('property' for descending, '-property' for ascending)
 
-            Accepts:  `name`, `-name`
+            Accepts:  ``name``, ``-name``
 
         :return:  A ``list`` of object ``dict`` containing name and id of all industries
         """
@@ -91,7 +91,7 @@ class Esps(Resource):
         :param int per_page:  The amount of records per page you wish to query for (max 100)
         :param str order:  The property to sort by ('property' for descending, '-property' for ascending)
 
-            Accepts:  `name`, `-name`
+            Accepts:  ``name``, ``-name``
 
         :return:  A ``list`` of object ``dict`` containing name and id of all esps
         """
@@ -223,7 +223,7 @@ class Brands(Resource):
         :param int per_page:  The amount of records per page you wish to query for (max 100)
         :param str order:  The property to sort by ('property' for descending, '-property' for ascending)
 
-            Accepts:  `name`, `-name`
+            Accepts:  ``name``, ``-name``
 
         :param str embed:  The objects within the return model you wish to embed in the form of
             'customer, customer.name, etc'
@@ -286,7 +286,7 @@ class Companies(Resource):
         :param int per_page:  The amount of records per page you wish to query for (max 100)
         :param str order:  The property to sort by ('property' for descending, '-property' for ascending)
 
-            Accepts:  `name`, `-name`
+            Accepts:  ``name``, ``-name``
 
         :param str embed:  The objects within the return model you wish to embed in the form of
             'customer, customer.name, etc'

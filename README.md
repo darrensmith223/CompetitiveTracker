@@ -33,7 +33,14 @@ Once you have an API key, you can pass it to the CompetitiveTracker class:
 
 You can use the underlying Competitive Tracker API with the classes in the `competitivetracker` module:
 
-* `competitivetracker.core`
+* `competitivetracker.core.brands`
+* `competitivetracker.core.companies`
+* `competitivetracker.core.discover`
+* `competitivetracker.core.domains`
+* `competitivetracker.core.esps`
+* `competitivetracker.core.graph`
+* `competitivetracker.core.industries`
+* `competitivetracker.core.ping`
 * `competitivetracker.domain_info`
 * `competitivetracker.intelligence.brand`
 * `competitivetracker.intelligence.campaign`

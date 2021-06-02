@@ -3,9 +3,10 @@ Search
 
 Competitive Tracker's Search is an incredibly powerful tool for users to retrieve campaign details about the mailings
 sent by other organizations.  Competitive Search capabilities empowers teams with tremendous data to help with
-everything from conducting market research, to industry benchmarking, and sales enablement.  There are numerous filters
-and parameters that can be applied to the search query that will quickly surface campaigns of interest.  All campaigns
-sent by a domain over the past 3 days can be retrieved using the `Competitive Tracker API`_, as shown below:
+everything from conducting market research, to industry benchmarking and sales enablement.  There are numerous filters
+and search criteria that can be applied to the search query that will quickly surface campaigns of interest.  For
+example, all campaigns sent by a domain over the past 3 days can be retrieved using the `Competitive Tracker API`_,
+as shown below:
 
 
 .. code-block:: python
@@ -38,7 +39,7 @@ Search for Campaigns
 
     ct = CompetitiveTracker("API_KEY")
 
-    response = ct.search.search(
+    ct.search.search(
         qd="daysBack:3",
         sendingDomain="example.com"
     )
@@ -49,17 +50,20 @@ Search for Keywords in Subject and Body
 
 When using keywords to search, more complex queries can be structured with the following:
 
-* Multiple terms or clauses can be grouped together with parentheses for sub-queries
-
-    Example: (Free or %) AND Fall
-
 * Boolean operators
 
     * "+" Indicates it must be present; "-" indicates it must not be present
 
-    * The "+" and "–" only affects the terms to the right of the operator. Example: Fall +Sale
+    * The "+" and "–" only affects the terms to the right of the operator.
 
-    * Familiar operators AND, OR and NOT are also supported. NOT takes precedence over AND. AND takes precedence over OR
+        Example: "Fall +Sale"
+
+    * Familiar operators AND, OR, and NOT are also supported. NOT takes precedence over AND. AND takes precedence over OR
+
+* Multiple terms or clauses can be grouped together with parentheses for sub-queries
+
+    Example: (Free OR %) AND Fall
+
 
 .. code-block:: python
 
@@ -67,7 +71,7 @@ When using keywords to search, more complex queries can be structured with the f
 
     ct = CompetitiveTracker("API_KEY")
 
-    response = ct.search.search(
+    ct.search.search(
         qd="daysBack:3",
         subject="Sample Text",
         body="Sample Text"
@@ -77,10 +81,10 @@ When using keywords to search, more complex queries can be structured with the f
 Filter on Specific Industries
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Filtering on specific industries requires the numerical industryId.  The industryId can be retrieved using the Core
-class, by either retrieving the complete list of all industries with corresponding industryId using
-`competitivetracker.core.industries`, or by searching for industries with a search text string using
-`competitivetracker.core.discover`.
+Filtering on specific industries requires the numerical industryId.  The industryId can be retrieved using the
+`Core class`_, by either retrieving the complete list of all industries with corresponding industryId using
+`competitivetracker.core.industries`_, or by searching for industries with a search text string using
+`competitivetracker.core.discover`_.
 
 .. code-block:: python
 
@@ -88,19 +92,28 @@ class, by either retrieving the complete list of all industries with correspondi
 
     ct = CompetitiveTracker("API_KEY")
 
-    response = ct.search.search(
+    ct.search.search(
         qd="daysBack:3",
         industryId=[1, 2, 3]
     )
 
 
+.. _Core class: https://competitivetracker.readthedocs.io/en/latest/resources/core.html
+.. _competitivetracker.core.industries: https://competitivetracker.readthedocs.io/en/latest/api/core.html#competitivetracker-core-industries
+.. _competitivetracker.core.discover: https://competitivetracker.readthedocs.io/en/latest/api/core.html#competitivetracker-core-discover
+
+
 Filter on Specific Companies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Filtering on specific companies requires the numerical companyId.  The companyId can be retrieved using the Core
-class, by either retrieving the complete list of all companies with corresponding companyId using
-`competitivetracker.core.companies`, or by searching for companies with a search text string using
-`competitivetracker.core.discover`.
+Filtering on specific companies requires the numerical companyId.  The companyId can be retrieved using the
+`Core class`_, by either retrieving the complete list of all companies with corresponding companyId using
+`competitivetracker.core.companies`_, or by searching for companies with a search text string using
+`competitivetracker.core.discover`_.
+
+
+.. _competitivetracker.core.companies: https://competitivetracker.readthedocs.io/en/latest/api/core.html#competitivetracker-core-companies
+
 
 .. code-block:: python
 
@@ -108,7 +121,7 @@ class, by either retrieving the complete list of all companies with correspondin
 
     ct = CompetitiveTracker("API_KEY")
 
-    response = ct.search.search(
+    ct.search.search(
         qd="daysBack:3",
         companyId=[1, 2, 3],
         excludedCompanyId=[5, 6, 7]
@@ -118,10 +131,10 @@ class, by either retrieving the complete list of all companies with correspondin
 Filter on Specific Brands
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Filtering on specific brands requires the numerical brandId.  The brandId can be retrieved using the Core
-class, by either retrieving the complete list of all brands with corresponding brandId using
-`competitivetracker.core.brands`, or by searching for brands with a search text string using
-`competitivetracker.core.discover`.
+Filtering on specific brands requires the numerical brandId.  The brandId can be retrieved using the
+`Core class`_, by either retrieving the complete list of all brands with corresponding brandId using
+`competitivetracker.core.brands`_, or by searching for brands with a search text string using
+`competitivetracker.core.discover`_.
 
 .. code-block:: python
 
@@ -129,11 +142,14 @@ class, by either retrieving the complete list of all brands with corresponding b
 
     ct = CompetitiveTracker("API_KEY")
 
-    response = ct.search.search(
+    ct.search.search(
         qd="daysBack:3",
         brandId=[1, 2, 3],
         excludedBrandId=[5, 6, 7]
     )
+
+
+.. _competitivetracker.core.brands: https://competitivetracker.readthedocs.io/en/latest/api/core.html#competitivetracker-core-brands
 
 
 Filter on Specific Domains
@@ -145,7 +161,7 @@ Filter on Specific Domains
 
     ct = CompetitiveTracker("API_KEY")
 
-    response = ct.search.search(
+    ct.search.search(
         qd="daysBack:3",
         sendingDomain=["example1.com", "example2.com"],
         excludeSendingDomain=["example3.com", "example4.com"]
@@ -161,7 +177,7 @@ Exclude Campaigns without Creatives
 
     ct = CompetitiveTracker("API_KEY")
 
-    response = ct.search.search(
+    ct.search.search(
         qd="daysBack:3",
         hasCreative=True
     )
@@ -170,10 +186,10 @@ Exclude Campaigns without Creatives
 Filter on ESP
 ^^^^^^^^^^^^^
 
-Filtering on specific ESPs requires the numerical espId.  The espId can be retrieved using the Core
-class, by either retrieving the complete list of all ESPs with corresponding espId using
-`competitivetracker.core.esps`, or by searching for ESPs with a search text string using
-`competitivetracker.core.discover`.
+Filtering on specific ESPs requires the numerical espId.  The espId can be retrieved using the
+`Core class`_, by either retrieving the complete list of all ESPs with corresponding espId using
+`competitivetracker.core.esps`_, or by searching for ESPs with a search text string using
+`competitivetracker.core.discover`_.
 
 .. code-block:: python
 
@@ -181,10 +197,13 @@ class, by either retrieving the complete list of all ESPs with corresponding esp
 
     ct = CompetitiveTracker("API_KEY")
 
-    response = ct.search.search(
+    ct.search.search(
         qd="daysBack:3",
         espId=1
     )
+
+
+.. _competitivetracker.core.esps: https://competitivetracker.readthedocs.io/en/latest/api/core.html#competitivetracker-core-esps
 
 
 Filter on Engagement
@@ -196,7 +215,7 @@ Filter on Engagement
 
     ct = CompetitiveTracker("API_KEY")
 
-    response = ct.search.search(
+    ct.search.search(
         qd="daysBack:3",
         readPercentage=">,20"
     )
@@ -211,7 +230,7 @@ Filter on Inbox Placement
 
     ct = CompetitiveTracker("API_KEY")
 
-    response = ct.search.search(
+    ct.search.search(
         qd="daysBack:3",
         inboxPercentage="<,90"
     )
