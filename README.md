@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.com/darrensmith223/CompetitiveTracker.svg?branch=main)](https://travis-ci.com/darrensmith223/CompetitiveTracker)
+[![Documentation Status](https://readthedocs.org/projects/competitivetracker/badge/?version=latest)](https://competitivetracker.readthedocs.io/en/latest/?badge=latest)
+
 # CompetitiveTracker
 Python library for SparkPost's [Competitive Tracker](https://www.sparkpost.com/competitive-tracker/)
 
