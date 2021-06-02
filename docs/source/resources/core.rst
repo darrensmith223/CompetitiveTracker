@@ -17,7 +17,7 @@ the Competitive Tracker platform, such as entity identifiers.  Core includes the
 Brands
 ------
 
-The ``brands`` class enables users to retrieve details about brands, including getting a list of all brands and
+The ``brands`` class enables users to retrieve details about brands, including a list of all brands and
 the respective brandId.  Brands can be used in conjunction with other Competitive Tracker classes when the
 brandId is required.  All brands and the respective brandId can be retrieved using the
 `Competitive Tracker API`_, as shown below:
@@ -73,7 +73,7 @@ Get All Domains for a Brand
 Companies
 ---------
 
-The ``companies`` class enables users to retrieve details about companies, including getting a list of all companies and
+The ``companies`` class enables users to retrieve details about companies, including a list of all companies and
 the respective companyId.  Companies can be used in conjunction with other Competitive Tracker classes when the
 companyId is required.  All companies and the respective companyId can be retrieved using the
 `Competitive Tracker API`_, as shown below:
@@ -131,8 +131,8 @@ Discover
 The Discover class enables a user to search for different entities, such as ESPs or Industries, by passing the search
 text as a string.  The Discover class can be used in conjunction with other Competitive Tracker classes, particularly
 when numerical identifiers are required.  The Discover search capabilities can be used to retrieve the identifier of an
-entity from a string or partial string.  The names and identifiers of industries matching a search string can be
-retrieved using the `Competitive Tracker API`_, as shown below:
+entity from a string or partial string.  For example, the names and identifiers of industries matching a search string
+can be retrieved using the `Competitive Tracker API`_, as shown below:
 
 .. code-block:: python
 
@@ -260,7 +260,7 @@ The search text can be either a complete or a partial string.
 Domains
 -------
 
-The ``domains`` class enables users to retrieve details about domains, including getting a list of all domains and
+The ``domains`` class enables users to retrieve details about domains, including a list of all domains and
 the respective domainId.  Domains can be used in conjunction with other Competitive Tracker classes when the
 domainId is required.  All domains and the respective domainId can be retrieved using the
 `Competitive Tracker API`_, as shown below:
@@ -301,7 +301,7 @@ Get Domain Details From ID
 ESPs
 ----
 
-The ``esps`` class enables users to retrieve details about ESPs, including getting a list of all ESPs and
+The ``esps`` class enables users to retrieve details about ESPs, including a list of all ESPs and
 the respective espId.  Esps can be used in conjunction with other Competitive Tracker classes when the
 espId is required.  All ESPs and the respective espId can be retrieved using the
 `Competitive Tracker API`_, as shown below:
@@ -342,11 +342,25 @@ Get ESP Details From ID
 Graph
 -----
 
-Graphs enable a user to retrieve the graph details for a company using a variety of methods.
+Graphs enable a user to retrieve a complete mapping for a company of the various brands and company details.  The
+Graphs class provides different methods of identifying and retrieving these details, including searching by text, as
+well as by domain.  This class makes it easier to identify the company details with a single endpoint, rather than
+having to leverage multiple endpoints to identify the companyId, retrieve company details, and retrieve the brands for
+the company.  For example, company details for a company can be retrieved from a search text, as shown below:
 
 
-Get Company From String
-***********************
+.. code-block:: python
+
+    from competitivetracker import CompetitiveTracker
+
+    ct = CompetitiveTracker("API_KEY")
+
+    response = ct.core.graph.get_company(q="example_text")
+    print(response)
+
+
+Get Company Details From String
+*******************************
 
 .. code-block:: python
 
@@ -357,8 +371,8 @@ Get Company From String
     ct.core.graph.get_company(q="example_text")
 
 
-Get Company From Domain
-***********************
+Get Company Details From Domain
+*******************************
 
 .. code-block:: python
 
@@ -369,8 +383,8 @@ Get Company From Domain
     ct.core.graph.get_company_from_domain(domainName="example_domain")
 
 
-Get Company From ID
-*******************
+Get Company Details From ID
+***************************
 
 .. code-block:: python
 
@@ -384,7 +398,7 @@ Get Company From ID
 Industries
 ----------
 
-The ``industries`` class enables users to retrieve details about industries, including getting a list of all industries and
+The ``industries`` class enables users to retrieve details about industries, including a list of all industries and
 the respective industryId.  Industries can be used in conjunction with other Competitive Tracker classes when the
 industryId is required.  All industries and the respective industryId can be retrieved using the
 `Competitive Tracker API`_, as shown below:
@@ -440,7 +454,8 @@ Ping
 ----
 
 Ping enables a user to verify that the core module is accessible.  The Core ping is separate from the Competitive
-Tracker ping because the Core module interfaces with a different service than the primary Competitive Tracker service.
+Tracker ping because the Core module interfaces with a different underlying service than the primary Competitive
+Tracker service.
 
 
 Ping the Core Service

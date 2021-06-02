@@ -2,7 +2,7 @@ Overlaps
 ========
 
 Overlap details enable a user to understand what domains are sending email to the same recipient lists, and to what
-degree the mailing lists overlap.  The overlapping sending domains for a specific domain, and the related details can
+degree the mailing lists overlap.  The overlapping sending domains for a specific domain and the related details can
 be retrieved using the `Competitive Tracker API`_, as shown below:
 
 .. code-block:: python
@@ -27,7 +27,7 @@ Get Overlap Details for a Domain
 
     ct = CompetitiveTracker("API_KEY")
 
-    response = ct.overlaps.get_domain_overlaps(domain="example.com")
+    ct.overlaps.get_domain_overlaps(domain="example.com")
 
 
 Overlap Across all Industries
@@ -42,7 +42,7 @@ all industries, use the parameter ``ignoreIndustry``, as shown:
 
     ct = CompetitiveTracker("API_KEY")
 
-    response = ct.overlaps.get_domain_overlaps(
+    ct.overlaps.get_domain_overlaps(
         domain="example.com",
         ignoreIndustry=True
     )
@@ -57,7 +57,7 @@ Exclude Domains from the Same Company
 
     ct = CompetitiveTracker("API_KEY")
 
-    response = ct.overlaps.get_domain_overlaps(
+    ct.overlaps.get_domain_overlaps(
         domain="example.com",
         excludeSameCompany=True
     )
@@ -72,7 +72,7 @@ Get Overlap Details Between Specific Domains
 
     ct = CompetitiveTracker("API_KEY")
 
-    response = ct.overlaps.get_narrowed_overlap(
+    ct.overlaps.get_narrowed_overlap(
         domain="example.com",
         overlapDomain=["overlap1.com", "overlap2.com"]
     )
@@ -86,5 +86,5 @@ Get Overlap of Top Competitors for a Domain
 
     ct = CompetitiveTracker("API_KEY")
 
-    response = ct.overlaps.get_top_competing(domain="example.com")
+    ct.overlaps.get_top_competing(domain="example.com")
 
