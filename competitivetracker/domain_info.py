@@ -60,6 +60,7 @@ class Domain_Info(Resource):
             endpoint = "/brand_volume_average_and_esps"
             apiUrl = self.uri + endpoint
             parameters = self.SetParameters(kwargs, param_model)
+            parameters["domain"] = domains
             apiResponse = self.request("GET", apiUrl, params=parameters)
         else:
             endpoint = "/brand_volume_average_and_esps"
