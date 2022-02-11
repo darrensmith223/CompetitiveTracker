@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='competitivetracker',
-    version='1.0.0',
+    version='1.0.1',
     author='Darren Smith',
     author_email='darren.smith@sparkpost.com',
     packages=find_packages(),
