@@ -39,4 +39,4 @@ Get the Send Volume and ESPs Used for a List of Domains
 
     ct = CompetitiveTracker("API_KEY")
 
-    ct.domain_info.get_brand_volume_and_esps(domain=["example.com"])
+    ct.domain_info.get_brand_volume_and_esps(domains=["example.com"])

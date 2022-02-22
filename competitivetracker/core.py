@@ -353,7 +353,7 @@ class Domains(Resource):
 
         :return:  A ``list`` of object ``dict`` containing name and id of all companies
         """
-        endpoint = "/domains"
+        endpoint = ""
         apiUrl = self.uri + endpoint
         parameters = self.SetParameters(kwargs, param_model)
         apiResponse = self.request("GET", apiUrl, params=parameters)
