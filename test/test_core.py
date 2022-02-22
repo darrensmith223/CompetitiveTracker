@@ -207,7 +207,7 @@ def test_discover_search():
 @responses.activate
 def test_domains_get_all_domains():
     ct = CompetitiveTracker("fake-key")
-    endpoint = "/domains"
+    endpoint = ""
     url = ct.core.domains.uri + endpoint
     responses.add(
         responses.GET,

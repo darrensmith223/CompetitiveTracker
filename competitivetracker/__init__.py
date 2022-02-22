@@ -6,7 +6,7 @@ from .search import Search
 from .core import Core
 
 
-__version__ = '1.0.1'
+__version__ = '1.1.0'
 competitive_tracker_uri = "api.edatasource.com"
 
 competitive_module = '/competitive'

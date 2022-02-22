@@ -392,7 +392,7 @@ Get Company Details From ID
 
     ct = CompetitiveTracker("API_KEY")
 
-    ct.core.graph.get_company_from_domain(companyId=1)
+    ct.core.graph.get_company_from_id(companyId=1)
 
 
 Industries
