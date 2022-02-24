@@ -351,7 +351,7 @@ class Domains(Resource):
 
             Accepts:  ``name``, ``-name``
 
-        :return:  A ``list`` of object ``dict`` containing name and id of all companies
+        :return:  A ``list`` of object ``dict`` containing name and id of all domains
         """
         endpoint = ""
         apiUrl = self.uri + endpoint
